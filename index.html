@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Школа Марабу — начальная школа, подготовка к школе и продлёнка в Хабаровске</title>
+<meta name="description" content="Детский центр «Школа Марабу» на Краснореченской, 165а: начальная школа по советской программе, подготовка к школе, каллиграфия, английский, продлёнка и летний лагерь для детей 6–11 лет.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--g:#1F6B3A;--g2:#3DBB4A;--gold:#E8A839;--or:#E07A2E;--bg:#FBF8EF;--ink:#1D2A21;--ink2:#56645A;--line:#ECE5D2;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Rubik',sans-serif;line-height:1.12}
+h2{font-size:32px;font-weight:800;color:var(--g)}
+.sub{margin-top:10px;color:var(--ink2);font-weight:600;max-width:640px}
+section{padding:48px 0}
+/* шапка */
+header{position:sticky;top:0;z-index:50;background:rgba(251,248,239,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:12px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:46px;height:46px}
+.brand b{font:800 21px 'Rubik',sans-serif;color:var(--g);line-height:1;white-space:nowrap}
+.brand small{display:block;font:700 12px 'Nunito',sans-serif;color:var(--ink2);margin-top:3px}
+nav{display:none;margin-left:auto;gap:24px;font-weight:800;color:var(--ink2)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--g)}
+.hphone{display:none;margin-left:22px;padding:10px 18px;border-radius:12px;background:var(--g);color:#fff;font-weight:800;text-decoration:none;white-space:nowrap}
+.hwa{margin-left:auto;padding:9px 14px;border-radius:12px;background:#25D366;color:#fff;font-weight:800;text-decoration:none;font-size:15px}
+/* первый экран */
+.hero{background:var(--g);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;background:var(--g2);opacity:.35}
+.hero .wrap{position:relative;z-index:1;display:grid;gap:26px;padding-top:30px;padding-bottom:36px}
+.plate{display:inline-block;background:var(--gold);color:var(--g);font:800 15px 'Rubik',sans-serif;padding:7px 14px;border-radius:8px;transform:rotate(-1.5deg)}
+.hero h1{font-size:36px;font-weight:800;margin-top:16px}
+.hero h1 span{color:var(--gold)}
+.hero .lead{margin-top:14px;font-size:18px;font-weight:600;color:#DDEBDF}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:15px 22px;border-radius:14px;font:800 17px 'Nunito',sans-serif;text-decoration:none;border:0;cursor:pointer}
+.btn.y{background:var(--gold);color:var(--g);box-shadow:0 5px 0 #B9801F}
+.btn.w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.bird{overflow:hidden;justify-self:center;width:250px;height:250px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 10px rgba(232,168,57,.9),0 30px 60px rgba(0,0,0,.25)}
+.bird img{width:86%}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:14px 16px}
+.fact b{display:block;font:800 28px 'Rubik',sans-serif;color:var(--gold);line-height:1.1}
+.fact span{font-size:14px;font-weight:700;color:#DDEBDF}
+/* направления */
+.grid{display:grid;gap:16px;margin-top:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.card .ph{height:170px;background:#e9e4d4 center/cover no-repeat}
+.card .in{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:21px;font-weight:700;color:var(--g)}
+.card p{font-size:15.5px;color:var(--ink2);font-weight:600}
+.card .pr{margin-top:auto;padding-top:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card .pr b{font:800 22px 'Rubik',sans-serif}
+.card .pr span{font-size:14px;color:var(--ink2);font-weight:700}
+.card .more{font-weight:800;color:var(--or);text-decoration:none;font-size:15px}
+/* подготовка к школе */
+.ready{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px 20px;margin-top:24px;display:grid;gap:18px}
+.res{display:grid;gap:12px}
+.r{display:flex;gap:16px;align-items:center}
+.r b{font:800 34px 'Rubik',sans-serif;color:var(--or);min-width:118px;line-height:1}
+.r span{font-weight:700}
+.pen{background:var(--g);color:#fff;border-radius:20px;padding:20px}
+.pen h3{font-size:22px;color:var(--gold)}
+.pen p{margin-top:8px;color:#DDEBDF;font-weight:600}
+/* продлёнка */
+.day{display:grid;gap:10px;margin-top:24px;counter-reset:d}
+.st{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center}
+.st time{font-size:34px;line-height:1;text-align:center}
+.st b{display:block;font-weight:800}
+.st span{font-size:15px;color:var(--ink2);font-weight:600}
+.split{display:grid;gap:22px;align-items:center}
+.photo{border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:#e9e4d4}
+.photo img{width:100%;height:100%;object-fit:cover}
+/* лагерь */
+.camp{background:#F2EEDC}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.gal div{border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:#e9e4d4}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal .wide{grid-column:span 2;aspect-ratio:2/1}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tags span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-weight:800;font-size:15px;color:var(--g)}
+/* отзывы */
+.rhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.score{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 18px;text-decoration:none}
+.score b{font:800 34px 'Rubik',sans-serif;color:var(--g)}
+.score span{font-size:14px;font-weight:700;color:var(--ink2);line-height:1.3}
+.revs{display:grid;gap:14px;margin-top:22px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px}
+.rev p{font-weight:600}
+.rev .who{margin-top:12px;display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:800;color:var(--ink2)}
+.rev .who b{color:var(--g)}
+/* контакты */
+.contacts{display:grid;gap:18px;margin-top:24px}
+.info{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px}
+.info dl{display:grid;gap:14px}
+.info dt{font-size:14px;font-weight:800;color:var(--ink2)}
+.info dd{font-weight:800;font-size:18px}
+.info dd small{display:block;font-size:14px;color:var(--ink2);font-weight:700}
+.info a{text-decoration:none;color:var(--g)}
+#map{position:relative;z-index:0;height:320px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#e9e4d4}
+.pin{width:54px;height:54px;border-radius:50%;background:#fff;border:4px solid var(--gold);display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.leaflet-container .pin img{width:44px!important;height:44px!important;max-width:none}
+/* форма */
+#zapis{background:var(--g);color:#fff;border-radius:28px;padding:26px 20px;margin-top:6px}
+#zapis h2{color:#fff}
+#zapis .sub{color:#DDEBDF}
+.fld{margin-top:14px}
+.fld label{display:block;font-size:14px;font-weight:800;color:#CFE3D3;margin-bottom:6px}
+.fld input,.fld select{width:100%;padding:14px 16px;border-radius:12px;border:0;font:700 17px 'Nunito',sans-serif;color:var(--ink);background:#fff;appearance:none}
+.sel{position:relative}
+.sel:after{content:"";position:absolute;right:18px;top:50%;width:9px;height:9px;border-right:3px solid var(--g);border-bottom:3px solid var(--g);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.agree{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14px;font-weight:700;color:#CFE3D3}
+.agree input{width:22px;height:22px;accent-color:var(--gold);flex:none;margin-top:1px}
+#zapis .btn{width:100%;margin-top:18px;background:#25D366;color:#fff;box-shadow:0 5px 0 #179D4A;font-size:18px}
+.ok{display:none;margin-top:14px;font-weight:800;color:var(--gold)}
+footer{padding:30px 0 100px;color:var(--ink2);font-weight:700;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px 14px;background:rgba(251,248,239,.97);border-top:1px solid var(--line)}
+.mbar a{padding:13px;border-radius:12px;text-align:center;font-weight:800;text-decoration:none;color:#fff}
+.mbar .c{background:var(--g)}.mbar .w{background:#25D366}
+@media(min-width:720px){
+  .grid{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(4,1fr)}
+  .revs{grid-template-columns:1fr 1fr}
+}
+@media(min-width:980px){
+  body{font-size:18px}
+  nav,.hphone{display:flex}.hwa{display:none}
+  .hero .wrap{grid-template-columns:1.25fr .75fr;align-items:center;padding-top:60px;padding-bottom:56px;gap:30px 50px}
+  .hero h1{font-size:54px}
+  .hero .lead{font-size:21px;max-width:600px}
+  .bird{width:340px;height:340px}
+  .facts{grid-column:1/-1;grid-template-columns:repeat(4,1fr);gap:14px}
+  section{padding:70px 0}
+  h2{font-size:42px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .ready{grid-template-columns:1.2fr .8fr;padding:34px;align-items:center}
+  .split{grid-template-columns:1fr 1fr;gap:40px}
+  .gal{grid-template-columns:repeat(4,1fr)}
+  .revs{grid-template-columns:repeat(3,1fr)}
+  .contacts{grid-template-columns:.8fr 1.2fr}
+  #map{height:100%;min-height:380px}
+  #zapis{padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+  #zapis .head,#zapis .agree,#zapis .btn,#zapis .ok{grid-column:1/-1}
+  .mbar{display:none}
+  footer{padding-bottom:34px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <a class="brand" href="#"><img src="img/logo.png" alt="Школа Марабу"><span><b>Школа Марабу</b><small>детский центр с 2015 года</small></span></a>
+  <nav><a href="#napravleniya">Направления</a><a href="#prodlenka">Продлёнка</a><a href="#lager">Лагерь</a><a href="#otzyvy">Отзывы</a><a href="#kontakty">Контакты</a></nav>
+  <a class="hphone" href="tel:+79294050604">+7 929 405-06-04</a>
+  <a class="hwa" href="https://wa.me/79247025777">WhatsApp</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="plate">Детям 6–11 лет · Краснореченская, 165а</span>
+    <h1>Начальная школа и подготовка к школе <span>по советской программе</span></h1>
+    <p class="lead">Маленькие классы, письмо пером, английский, продлёнка и летний лагерь. Индивидуальный подход к каждому ребёнку.</p>
+    <div class="btns"><a class="btn y" href="#zapis">Записаться</a><a class="btn w" href="tel:+79294050604">Позвонить</a></div>
+  </div>
+  <div class="bird"><img src="img/logo-512.png" alt=""></div>
+  <div class="facts">
+    <div class="fact"><b>с 2015</b><span>учим детей в Хабаровске</span></div>
+    <div class="fact"><b>5,0</b><span>рейтинг в 2ГИС, 27 оценок</span></div>
+    <div class="fact"><b>4,6</b><span>средний балл в начальной школе</span></div>
+    <div class="fact"><b>6–11</b><span>лет — возраст учеников</span></div>
+  </div>
+</div></div>
+
+<section id="napravleniya"><div class="wrap">
+  <h2>Направления</h2>
+  <p class="sub">Можно ходить на одно занятие или остаться у нас на весь день: школа, продлёнка, кружки.</p>
+  <div class="grid">
+    <div class="card"><div class="ph" style="background-image:url(img/f12.jpg)"></div><div class="in">
+      <h3>Начальная школа</h3>
+      <p>1–4 класс по проверенной советской программе. Небольшие классы, внимание к почерку и чтению.</p>
+      <div class="pr"><b>15 000 ₽</b><span>в месяц</span></div></div></div>
+    <div class="card"><div class="ph" style="background-image:url(img/f03.jpg)"></div><div class="in">
+      <h3>Подготовка к школе</h3>
+      <p>Чтение, счёт до 100, задачи 1 класса. Учимся слушать учителя и работать в классе.</p>
+      <div class="pr"><b>4 500 ₽</b><span>в месяц</span></div></div></div>
+    <div class="card"><div class="ph" style="background-image:url(img/f19.jpg)"></div><div class="in">
+      <h3>Коррекция почерка</h3>
+      <p>Каллиграфия и письмо пером. Почерк становится ровным и разборчивым.</p>
+      <div class="pr"><b>800 ₽</b><span>за занятие</span></div></div></div>
+    <div class="card"><div class="ph" style="background-image:url(img/f11.jpg)"></div><div class="in">
+      <h3>Английский язык</h3>
+      <p>Небольшие группы и сильные педагоги — так о занятиях пишут родители.</p>
+      <div class="pr"><a class="more" href="#zapis">Узнать цену →</a></div></div></div>
+    <div class="card"><div class="ph" style="background-image:url(img/f14.jpg)"></div><div class="in">
+      <h3>Продлёнка</h3>
+      <p>Забираем из школы, кормим обедом, делаем уроки с педагогом, гуляем.</p>
+      <div class="pr"><a class="more" href="#prodlenka">Как проходит день →</a></div></div></div>
+    <div class="card"><div class="ph" style="background-image:url(img/f06.jpg)"></div><div class="in">
+      <h3>Летний лагерь</h3>
+      <p>Творчество, прогулки и выезды каждую неделю. Программа не повторяется.</p>
+      <div class="pr"><a class="more" href="#lager">Смотреть фото →</a></div></div></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="ready">
+    <div>
+      <h2>С чем ребёнок придёт в 1 класс</h2>
+      <p class="sub">Результат курса «Подготовка к школе». Занятия идут в игре, без зубрёжки.</p>
+      <div class="res" style="margin-top:20px">
+        <div class="r"><b>15–46</b><span>слов в минуту читает ребёнок</span></div>
+        <div class="r"><b>до 100</b><span>считает и решает задачи 1 класса</span></div>
+        <div class="r"><b>пером</b><span>пишет красиво и аккуратно</span></div>
+      </div>
+    </div>
+    <div class="pen">
+      <h3>Пишем пером</h3>
+      <p>Как в советской школе: перо, чернила, прописи. Родители в отзывах отдельно хвалят грамотность и почерк детей.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="prodlenka" style="padding-top:0"><div class="wrap split">
+  <div>
+    <h2>Продлёнка: день ребёнка</h2>
+    <p class="sub">Вы на работе — ребёнок под присмотром, накормлен и с готовыми уроками.</p>
+    <div class="day">
+      <div class="st"><time>🏫</time><div><b>Забираем из школы</b><span>Педагог встречает ребёнка после уроков</span></div></div>
+      <div class="st"><time>🍲</time><div><b>Обед</b><span>Горячий обед и полдник</span></div></div>
+      <div class="st"><time>📒</time><div><b>Уроки с педагогом</b><span>Делаем домашнее задание и проверяем</span></div></div>
+      <div class="st"><time>🌳</time><div><b>Прогулка</b><span>Каждый день, рядом парк им. Гагарина</span></div></div>
+      <div class="st"><time>🎨</time><div><b>Занятия и чаепитие</b><span>Творчество, английский, кружки</span></div></div>
+    </div>
+  </div>
+  <div class="photo"><img src="img/f15.jpg" alt="Дети сажают дерево во дворе школы" loading="lazy"></div>
+</div></section>
+
+<section id="lager" class="camp"><div class="wrap">
+  <h2>Летний лагерь</h2>
+  <p class="sub">Каждый день — что-то новое: творчество, игры, выезды. Обед и полдник, дети всегда под присмотром.</p>
+  <div class="tags"><span>Верёвочный парк</span><span>Рисуем на улице</span><span>Сажаем деревья</span><span>Конструируем</span><span>Танцы</span></div>
+  <div class="gal">
+    <div class="wide"><img src="img/f05.jpg" alt="Верёвочный парк" loading="lazy"></div>
+    <div><img src="img/f09.jpg" alt="" loading="lazy"></div>
+    <div><img src="img/f16.jpg" alt="Машинка из конструктора" loading="lazy"></div>
+    <div><img src="img/f13.jpg" alt="" loading="lazy"></div>
+    <div><img src="img/f02.jpg" alt="Танцы" loading="lazy"></div>
+    <div class="wide"><img src="img/f11.jpg" alt="Рисуем на улице" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section id="otzyvy"><div class="wrap">
+  <div class="rhead">
+    <div><h2>Отзывы родителей</h2><p class="sub">Из 2ГИС — как есть, с именами и датами.</p></div>
+    <a class="score" href="https://2gis.ru/khabarovsk/firm/70000001020367565/tab/reviews" target="_blank" rel="noopener"><b>5,0</b><span>27 оценок в 2ГИС<br>Читать все отзывы →</span></a>
+  </div>
+  <div class="revs">
+    <div class="rev"><p>Классы не большие, что хорошо влияет на процесс обучения, детей обучают каллиграфии, очень интересные занятия по технологии, хорошо преподают все предметы, английский. Учителя очень хорошие!</p><div class="who"><b>Марина Журавлева</b><span>июнь 2026</span></div></div>
+    <div class="rev"><p>Дочь прошла в вашей замечательной школе подготовку к первому классу! Только положительные эмоции. Особенно хотелось выразить слова благодарности Марии Васильевне, прекрасный педагог.</p><div class="who"><b>Natalya K</b><span>май 2026</span></div></div>
+    <div class="rev"><p>Сын учится во втором классе. Мы в восторге от грамотности ребенка, ребята учатся писать пером — это очень здорово! Любим нашу школу и наших учителей.</p><div class="who"><b>City spirit</b><span>январь 2024</span></div></div>
+    <div class="rev"><p>Вожу сына на продленку. Очень довольна: забирают из школы, делают уроки, есть обед, прогулка обязательно, дополнительные занятия. На каникулах работает лагерь.</p><div class="who"><b>Anastasia Dimitrova</b><span>декабрь 2018</span></div></div>
+    <div class="rev"><p>Закончили курс «Подготовка к школе». Мария Васильевна находит ключик к каждому ребенку. Растим второго сыночка и без раздумий отдаем на подготовку к школе только в эти добрые руки.</p><div class="who"><b>Нина Генцер</b><span>май 2025</span></div></div>
+    <div class="rev"><p>Два года занимаемся в учебном центре, замечательные педагоги, индивидуальный подход, всегда можно договориться об удобном времени занятий, всем рекомендую.</p><div class="who"><b>Валерия Сорокина</b><span>июль 2024</span></div></div>
+  </div>
+</div></section>
+
+<section id="kontakty" style="padding-top:0"><div class="wrap">
+  <h2>Как нас найти</h2>
+  <div class="contacts">
+    <div class="info"><dl>
+      <div><dt>Адрес</dt><dd>Хабаровск, ул. Краснореченская, 165а<small>1 этаж, вход со двора · рядом парк им. Гагарина</small></dd></div>
+      <div><dt>Часы работы</dt><dd>Пн–Пт 8:30–20:00<small>Занятия — по предварительной записи</small></dd></div>
+      <div><dt>Телефон</dt><dd><a href="tel:+79294050604">+7 929 405-06-04</a></dd></div>
+      <div><dt>WhatsApp и Telegram</dt><dd><a href="https://wa.me/79247025777">+7 924 702-57-77</a></dd></div>
+      <div><dt>Почта</dt><dd><a href="mailto:marabu27@mail.ru">marabu27@mail.ru</a></dd></div>
+    </dl></div>
+    <div id="map" aria-label="Карта: ул. Краснореченская, 165а"></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <form id="zapis">
+    <div class="head"><h2>Записаться</h2><p class="sub">Заявка откроется в WhatsApp школы — останется нажать «Отправить». Перезвоним и подберём удобное время.</p></div>
+    <div class="fld"><label for="f-name">Ваше имя</label><input id="f-name" autocomplete="name" required></div>
+    <div class="fld"><label for="f-phone">Телефон</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+    <div class="fld"><label for="f-age">Возраст или класс ребёнка</label><div class="sel"><select id="f-age"><option>6 лет, ещё не в школе</option><option>1 класс</option><option>2 класс</option><option>3 класс</option><option>4 класс</option><option>Другое</option></select></div></div>
+    <div class="fld"><label for="f-what">Что интересует</label><div class="sel"><select id="f-what"><option>Подготовка к школе</option><option>Начальная школа</option><option>Продлёнка</option><option>Коррекция почерка</option><option>Английский язык</option><option>Летний лагерь</option></select></div></div>
+    <label class="agree"><input type="checkbox" id="f-agree" required> Согласен на обработку персональных данных</label>
+    <button class="btn" type="submit">Отправить в WhatsApp</button>
+    <p class="ok" id="ok">Открываем WhatsApp…</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>© Детский центр «Школа Марабу», Хабаровск, с 2015 года</span><span>ул. Краснореченская, 165а · +7 929 405-06-04</span></div></footer>
+<div class="mbar"><a class="c" href="tel:+79294050604">Позвонить</a><a class="w" href="https://wa.me/79247025777">WhatsApp</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// карта
+(function () {
+  if (!window.L) return;
+  const pt = [48.433923, 135.109459];
+  const map = L.map('map', { scrollWheelZoom: false, attributionControl: true }).setView(pt, 16);
+  L.tileLayer('https://tile{s}.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=1', { subdomains: '0123', maxZoom: 18, attribution: '© 2ГИС' }).addTo(map);
+  L.marker(pt, { icon: L.divIcon({ className: '', html: '<div class="pin"><img src="img/logo.png" alt=""></div>', iconSize: [54, 54], iconAnchor: [27, 27] }) }).addTo(map);
+})();
+// заявка в WhatsApp
+document.getElementById('zapis').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const t = `Здравствуйте! Хочу записать ребёнка.\nИмя: ${v('f-name')}\nТелефон: ${v('f-phone')}\nРебёнок: ${v('f-age')}\nИнтересует: ${v('f-what')}`;
+  document.getElementById('ok').style.display = 'block';
+  window.open('https://wa.me/79247025777?text=' + encodeURIComponent(t), '_blank');
+});
+</script>
+</body></html>
